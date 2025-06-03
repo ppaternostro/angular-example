@@ -18,7 +18,7 @@ export class ErrorService {
   }
 
   getServerMessage(error: HttpErrorResponse): any {
-    if (error && error.error) {
+    if (error && error.error && error.error.status) {
       return `${error.error.status} - ${error.error.error} - ${error.error.message} from ${error.url}`;
     } else if (error) {
       return `${error.status} - ${error.message} from ${error.url}`;
