@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ClockComponent } from '../clock/clock.component';
 import { FooterComponent } from './footer.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -9,8 +9,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FooterComponent, ClockComponent],
-      imports: [MatToolbarModule],
+      imports: [FooterComponent, ClockComponent, MatToolbarModule],
     }).compileComponents();
   });
 
