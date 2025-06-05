@@ -6,18 +6,13 @@ import { CreateComponent } from './create.component';
 describe('CreateComponent', () => {
   let component: CreateComponent;
   let fixture: ComponentFixture<CreateComponent>;
-  const mockDialogData = {
-    userId: 1,
-    title: 'Test',
-    body: 'Test',
-  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CreateComponent],
       providers: [
-        { provide: MatDialogRef, useValue: mockDialogData },
-        { provide: MAT_DIALOG_DATA, useValue: mockDialogData },
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
       ],
     }).compileComponents();
 
