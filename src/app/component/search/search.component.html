@@ -3,6 +3,7 @@
     <mat-form-field>
       <mat-label id="search-by-label">Search By</mat-label>
       <mat-select
+        id="search-by"
         (selectionChange)="onSelectionChanged($event.value)"
         [(value)]="selected"
       >
@@ -16,6 +17,7 @@
     <mat-form-field>
       <mat-label id="search-text-label">Search Text</mat-label>
       <input
+        id="search-text"
         (input)="onInputChange($event)"
         type="number"
         min="1"
@@ -26,5 +28,7 @@
     </mat-form-field>
   </div>
 
-  <button #search mat-raised-button (click)="onSearchClick()">Search</button>
+  <button id="search" #search mat-raised-button (click)="onSearchClick()">
+    Search
+  </button>
 </div>

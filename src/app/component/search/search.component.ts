@@ -27,6 +27,7 @@ export class SearchComponent implements AfterViewInit {
 
   @ViewChild('searchText')
   searchText!: ElementRef;
+
   selected = 'All';
 
   constructor(
@@ -34,7 +35,7 @@ export class SearchComponent implements AfterViewInit {
     private dataService: DataService
   ) {}
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.searchText.nativeElement.disabled = true;
   }
 
