@@ -1,4 +1,4 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpHandler, provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PostService } from '../../service/rest/post/post.service';
 import { ContentComponent } from './content.component';
@@ -10,7 +10,7 @@ describe('ContentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ContentComponent],
-      providers: [HttpClient, HttpHandler, PostService],
+      providers: [provideHttpClient(), HttpHandler, PostService],
     }).compileComponents();
   });
 

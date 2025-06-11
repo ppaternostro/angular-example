@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpHandler, provideHttpClient } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
 import { PostService } from '../../service/rest/post/post.service';
 import { SearchComponent } from './search.component';
@@ -12,7 +12,7 @@ describe('SearchComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SearchComponent],
-      providers: [HttpClient, HttpHandler, PostService],
+      providers: [provideHttpClient(), HttpHandler, PostService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchComponent);
