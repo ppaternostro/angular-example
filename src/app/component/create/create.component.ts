@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -11,8 +12,6 @@ import {
 } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Post } from '../../model/post';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-create',

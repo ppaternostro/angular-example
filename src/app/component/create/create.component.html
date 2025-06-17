@@ -2,20 +2,37 @@
 <mat-dialog-content class="flex flex-col">
   <mat-form-field class="w-full">
     <mat-label>User Id</mat-label>
-    <input matInput [disabled]="true" [value]="data.userId" />
+    <input
+      id="create-user-id"
+      matInput
+      [disabled]="true"
+      [value]="data.userId"
+    />
   </mat-form-field>
   <mat-form-field class="w-full">
     <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="title" />
+    <input id="create-title" matInput [value]="title" [(ngModel)]="title" />
   </mat-form-field>
   <mat-form-field class="w-full">
     <mat-label>Body</mat-label>
-    <input matInput [(ngModel)]="body" />
+    <input id="create-body" matInput [value]="body" [(ngModel)]="body" />
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions class="gap-5">
-  <button (click)="apply()" mat-raised-button [mat-dialog-close]="data">
+  <button
+    id="create-apply"
+    (click)="apply()"
+    mat-raised-button
+    [mat-dialog-close]="data"
+  >
     Apply
   </button>
-  <button (click)="cancel()" mat-raised-button mat-dialog-close>Cancel</button>
+  <button
+    id="create-cancel"
+    (click)="cancel()"
+    mat-raised-button
+    mat-dialog-close
+  >
+    Cancel
+  </button>
 </mat-dialog-actions>
