@@ -1,5 +1,11 @@
 <div class="flex flex-col h-full gap-5">
-  <table mat-table matSort [dataSource]="dataSource()" class="mat-elevation-z8">
+  <table
+    id="result-table"
+    mat-table
+    matSort
+    [dataSource]="dataSource()"
+    class="mat-elevation-z8"
+  >
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th class="w-1/20" mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -25,12 +31,18 @@
       <th class="w-1/5" mat-header-cell *matHeaderCellDef mat-sort-header>
         Title
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td id="result-title" mat-cell *matCellDef="let element">
         @if (!element.editable) {
         {{ element.title }}
         } @else {
         <mat-form-field class="w-full">
-          <input [(ngModel)]="element.title" type="text" matInput />
+          <input
+            id="result-title-input"
+            [(ngModel)]="element.title"
+            [value]="element.title"
+            type="text"
+            matInput
+          />
         </mat-form-field>
         }
       </td>
@@ -41,12 +53,18 @@
       <th class="w-2/5" mat-header-cell *matHeaderCellDef mat-sort-header>
         Body
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td id="result-body" mat-cell *matCellDef="let element">
         @if (!element.editable) {
         {{ element.body }}
         } @else {
         <mat-form-field class="w-full">
-          <input [(ngModel)]="element.body" type="text" matInput />
+          <input
+            id="result-body-input"
+            [(ngModel)]="element.body"
+            [value]="element.body"
+            type="text"
+            matInput
+          />
         </mat-form-field>
         }
       </td>
@@ -57,17 +75,29 @@
       <th class="w-1/15" mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element">
         @if (!element.editable) {
-        <mat-icon matTooltip="Edit" (click)="onEditClick(element)"
+        <mat-icon
+          id="result-edit"
+          matTooltip="Edit"
+          (click)="onEditClick(element)"
           >edit</mat-icon
         >
-        <mat-icon matTooltip="Delete" (click)="onDeleteClick(element)"
+        <mat-icon
+          id="result-delete"
+          matTooltip="Delete"
+          (click)="onDeleteClick(element)"
           >delete</mat-icon
         >
 
         } @else {
-        <mat-icon matTooltip="Save" (click)="onSaveClick(element)"
+        <mat-icon
+          id="result-save"
+          matTooltip="Save"
+          (click)="onSaveClick(element)"
           >save</mat-icon
-        ><mat-icon matTooltip="Cancel" (click)="onCancelClick(element)"
+        ><mat-icon
+          id="result-cancel"
+          matTooltip="Cancel"
+          (click)="onCancelClick(element)"
           >cancel</mat-icon
         >
         }
@@ -88,6 +118,7 @@
 
   <div class="flex flex-row justify-items-start gap-5">
     <button
+      id="result-create"
       (click)="onCreateClick(this.selection.selected)"
       [disabled]="createDisabled"
       mat-raised-button
