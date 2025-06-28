@@ -59,7 +59,7 @@ Clicking on the **Create** button will display a data entry dialog box for creat
 
 Since creating a new post is faked by the JSON Placeholder API, creating multiple posts produces the same post id for each newly created post. This isn't representative of an actual API call.
 
-Another issue uncovered with the newly created posts occurs when editing the editable column (**Title** and **Body**) values. Editing those column values produces a _500 Internal Server Error_ response code when calling the PUT API. This issue was not listed in the JSON Placeholder API's [known issues](https://github.com/typicode/jsonplaceholder/issues) but I was able to reproduce the error when using [Postman](https://www.postman.com/) to execute the PUT API with a post id value of _101_ or greater. The below stack trace was produced in the Postman console window.
+Another issue uncovered with the newly created posts occurs when editing the editable column (**Title** and **Body**) values. Editing those column values produces a _500 Internal Server Error_ response code when calling the PUT API. This issue is listed in the JSON Placeholder API's [known issues](https://github.com/typicode/jsonplaceholder/issues) and I was also able to reproduce the error when using [Postman](https://www.postman.com/) to execute the PUT API with a post id value of _101_ or greater. The below stack trace is produced in the Postman console window which is the same error reported in [known issue 98](https://github.com/typicode/jsonplaceholder/issues/98).
 
 > TypeError: Cannot read properties of undefined (reading 'id')
 > at update (/app/node_modules/json-server/lib/server/router/plural.js:262:24)
