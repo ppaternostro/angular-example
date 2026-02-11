@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-import { HttpHandler, provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { MatSelectHarness } from '@angular/material/select/testing';
 import { By } from '@angular/platform-browser';
 import { PostService } from '../../service/rest/post/post.service';
@@ -16,7 +16,7 @@ describe('SearchComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SearchComponent],
-      providers: [provideHttpClient(), HttpHandler, PostService],
+      providers: [provideHttpClientTesting(), PostService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchComponent);
@@ -31,10 +31,10 @@ describe('SearchComponent', () => {
 
   it('should ensure default state on creation', async () => {
     const searchText = fixture.debugElement.query(
-      By.css('#search-text')
+      By.css('#search-text'),
     ).nativeElement;
     const searchButton = fixture.debugElement.query(
-      By.css('#search')
+      By.css('#search'),
     ).nativeElement;
 
     const selectHarness = await loader.getHarness(MatSelectHarness);
@@ -53,10 +53,10 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
 
     const searchText = fixture.debugElement.query(
-      By.css('#search-text')
+      By.css('#search-text'),
     ).nativeElement;
     const searchButton = fixture.debugElement.query(
-      By.css('#search')
+      By.css('#search'),
     ).nativeElement;
 
     const selectHarness = await loader.getHarness(MatSelectHarness);

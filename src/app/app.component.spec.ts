@@ -1,4 +1,4 @@
-import { HttpHandler, provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { PostService } from './service/rest/post/post.service';
@@ -7,7 +7,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [provideHttpClient(), HttpHandler, PostService],
+      providers: [provideHttpClientTesting(), PostService],
     }).compileComponents();
   });
 

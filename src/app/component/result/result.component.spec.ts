@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HttpHandler, provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { Post } from '../../model/post';
@@ -15,7 +15,7 @@ describe('ResultComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ResultComponent],
-      providers: [provideHttpClient(), HttpHandler, PostService],
+      providers: [provideHttpClientTesting(), PostService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ResultComponent);
@@ -30,7 +30,7 @@ describe('ResultComponent', () => {
   it('should contain zero rows and the CREATE button should be disabled on initial state', () => {
     const rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
-      By.css('#result-create')
+      By.css('#result-create'),
     ).nativeElement;
 
     expect(rows).toBe(0);
@@ -44,7 +44,7 @@ describe('ResultComponent', () => {
 
     const rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
-      By.css('#result-create')
+      By.css('#result-create'),
     ).nativeElement;
 
     expect(rows).toBe(1);
@@ -64,7 +64,7 @@ describe('ResultComponent', () => {
 
     let rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
-      By.css('#result-create')
+      By.css('#result-create'),
     ).nativeElement;
 
     expect(rows).toBe(1);
@@ -75,7 +75,7 @@ describe('ResultComponent', () => {
     });
 
     const deleteIcon = fixture.debugElement.query(
-      By.css('#result-delete')
+      By.css('#result-delete'),
     ).nativeElement;
 
     deleteIcon.click();
@@ -94,14 +94,14 @@ describe('ResultComponent', () => {
 
     let rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
-      By.css('#result-create')
+      By.css('#result-create'),
     ).nativeElement;
 
     expect(rows).toBe(1);
     expect(createButton.disabled).toBeTruthy();
 
     const editIcon = fixture.debugElement.query(
-      By.css('#result-edit')
+      By.css('#result-edit'),
     ).nativeElement;
 
     editIcon.click();
@@ -109,19 +109,19 @@ describe('ResultComponent', () => {
     fixture.detectChanges();
 
     let titleInput = fixture.debugElement.query(
-      By.css('#result-title-input')
+      By.css('#result-title-input'),
     ).nativeElement;
 
     let bodyInput = fixture.debugElement.query(
-      By.css('#result-body-input')
+      By.css('#result-body-input'),
     ).nativeElement;
 
     let saveIcon = fixture.debugElement.query(
-      By.css('#result-save')
+      By.css('#result-save'),
     ).nativeElement;
 
     let cancelIcon = fixture.debugElement.query(
-      By.css('#result-cancel')
+      By.css('#result-cancel'),
     ).nativeElement;
 
     expect(titleInput).toBeTruthy();
@@ -151,14 +151,14 @@ describe('ResultComponent', () => {
 
     let rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
-      By.css('#result-create')
+      By.css('#result-create'),
     ).nativeElement;
 
     expect(rows).toBe(1);
     expect(createButton.disabled).toBeTruthy();
 
     const editIcon = fixture.debugElement.query(
-      By.css('#result-edit')
+      By.css('#result-edit'),
     ).nativeElement;
 
     editIcon.click();
@@ -166,15 +166,15 @@ describe('ResultComponent', () => {
     fixture.detectChanges();
 
     let titleInput = fixture.debugElement.query(
-      By.css('#result-title-input')
+      By.css('#result-title-input'),
     ).nativeElement;
 
     let bodyInput = fixture.debugElement.query(
-      By.css('#result-body-input')
+      By.css('#result-body-input'),
     ).nativeElement;
 
     let saveIcon = fixture.debugElement.query(
-      By.css('#result-save')
+      By.css('#result-save'),
     ).nativeElement;
 
     expect(titleInput).toBeTruthy();
@@ -204,10 +204,10 @@ describe('ResultComponent', () => {
     expect(saveIcon).toBeFalsy();
 
     const title = fixture.debugElement.query(
-      By.css('#result-title')
+      By.css('#result-title'),
     ).nativeElement;
     const body = fixture.debugElement.query(
-      By.css('#result-body')
+      By.css('#result-body'),
     ).nativeElement;
 
     expect(title.textContent.trim()).toBe('Title Change');

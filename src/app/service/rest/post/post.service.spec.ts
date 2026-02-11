@@ -6,7 +6,6 @@ import {
   TestRequest,
 } from '@angular/common/http/testing';
 
-import { HttpHandler, provideHttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { mockPost } from '../../../../mock/model/post/mock-post';
 import { Post } from '../../../model/post';
@@ -20,7 +19,7 @@ describe('PostService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HttpHandler, provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClientTesting()],
     });
     service = TestBed.inject(PostService);
     backEnd = TestBed.inject(HttpTestingController);
@@ -42,7 +41,7 @@ describe('PostService', () => {
     tracker.add(
       service.getPost(mockPost.id).subscribe((result: Post) => {
         expect(result).toEqual(mockPost);
-      })
+      }),
     );
 
     const call: TestRequest = backEnd.expectOne({
@@ -57,7 +56,7 @@ describe('PostService', () => {
     tracker.add(
       service.getPosts().subscribe((result: Post[]) => {
         expect(result).toEqual([mockPost]);
-      })
+      }),
     );
 
     const call: TestRequest = backEnd.expectOne({
@@ -72,7 +71,7 @@ describe('PostService', () => {
     tracker.add(
       service.savePost(mockPost).subscribe((result: Post) => {
         expect(result).toEqual(mockPost);
-      })
+      }),
     );
 
     const call: TestRequest = backEnd.expectOne({
@@ -87,7 +86,7 @@ describe('PostService', () => {
     tracker.add(
       service.deletePost(mockPost).subscribe((result: Post) => {
         expect(result).toEqual(mockPost);
-      })
+      }),
     );
 
     const call: TestRequest = backEnd.expectOne({
@@ -102,7 +101,7 @@ describe('PostService', () => {
     tracker.add(
       service.createPost(mockPost).subscribe((result: Post) => {
         expect(result).toEqual(mockPost);
-      })
+      }),
     );
 
     const call: TestRequest = backEnd.expectOne({
