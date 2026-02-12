@@ -1,5 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @use "tailwindcss";
 
+@use '@angular/material' as mat;
+
+$compact-theme: mat.define-theme(
+   (        
+      density:(
+         scale:-4
+      )
+   )
+ );
+
+@include mat.form-field-density($compact-theme);
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
