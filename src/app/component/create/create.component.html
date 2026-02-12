@@ -6,16 +6,16 @@
       id="create-user-id"
       matInput
       [disabled]="true"
-      [value]="data.userId"
+      [(ngModel)]="data.userId"
     />
   </mat-form-field>
   <mat-form-field class="w-full">
     <mat-label>Title</mat-label>
-    <input id="create-title" matInput [value]="title" [(ngModel)]="title" />
+    <input id="create-title" matInput [(ngModel)]="title" />
   </mat-form-field>
   <mat-form-field class="w-full">
     <mat-label>Body</mat-label>
-    <input id="create-body" matInput [value]="body" [(ngModel)]="body" />
+    <input id="create-body" matInput [(ngModel)]="body" />
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions class="gap-5">
