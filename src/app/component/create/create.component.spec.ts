@@ -29,19 +29,22 @@ describe('CreateComponent', () => {
   ['apply', 'cancel'].forEach((param) => {
     it(`should execute ${param}() method when ${param.toUpperCase()} button is clicked`, () => {
       const title = fixture.debugElement.query(
-        By.css('#create-title')
+        By.css('#create-title'),
       ).nativeElement;
       const body = fixture.debugElement.query(
-        By.css('#create-body')
+        By.css('#create-body'),
       ).nativeElement;
       const button = fixture.debugElement.query(
-        By.css(`#create-${param}`)
+        By.css(`#create-${param}`),
       ).nativeElement;
 
       spyOn(component, `${param}` as keyof CreateComponent);
 
       component.title = 'Title';
       component.body = 'Body';
+
+      title.dispatchEvent(new Event('input'));
+      body.dispatchEvent(new Event('input'));
 
       fixture.detectChanges();
 
@@ -51,7 +54,7 @@ describe('CreateComponent', () => {
       button.click();
 
       expect(
-        param === 'apply' ? component.apply : component.cancel
+        param === 'apply' ? component.apply : component.cancel,
       ).toHaveBeenCalled();
     });
   });
