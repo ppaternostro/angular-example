@@ -30,19 +30,19 @@ npm start
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`.
 
-![Main Screen](https://github.com/user-attachments/assets/2780e3ce-b936-4b21-88d6-a39aa37cd42e)
+<img width="1366" height="670" alt="Main Screen" src="https://github.com/user-attachments/assets/408a042a-4774-493c-8b31-ce404d5af6e4" />
 
 Searches are performed by numeric id or by the default which will retrieve all post objects when clicking on the **Search** button when **All** is selected from the **Search By** drop down list.
 
-![Search By All](https://github.com/user-attachments/assets/5bad2293-2179-467e-8922-a3a3b84407ba)
+<img width="1366" height="670" alt="Search By All" src="https://github.com/user-attachments/assets/4440865d-5499-42a8-b14d-714d3bf663c4" />
 
 All the table columns are sortable by clicking their respective column headers. Continuously clicking the column header cycles the sort direction. Note the down arrow icon in the **Id** column below.
 
-![Id Column Sort](https://github.com/user-attachments/assets/8f1201ba-7adc-448a-bb0f-25fe4983c642)
+<img width="1366" height="670" alt="Id Column Sort" src="https://github.com/user-attachments/assets/8136f334-0ed0-4586-b4ab-0dcb7ef32135" />
 
 The **Create** button is only enabled if a table row is selected.
 
-![Row Selected](https://github.com/user-attachments/assets/1d8a5a5d-f415-46ba-8683-3679cf26971c)
+<img width="1366" height="670" alt="Row Selected" src="https://github.com/user-attachments/assets/82f8114f-5b9a-4b61-a4af-f8a2d01cd319" />
 
 The JSON Placeholder API's **create** (POST), **update** (PUT) and **delete** (DELETE) operations are faked and will not persist changes on the server side. The returned responses will reflect results as if the operations were actually persisted server side.
 
@@ -51,11 +51,11 @@ The only editable columns in the result table are the **Title** and **Body** col
 Clicking on the **Action** column's **delete** icon removes a row from the table only after succesfully calling the HTTP
 DELETE operation on the **post** resource.
 
-![Edit Columns](https://github.com/user-attachments/assets/10c97318-c462-49a2-a73c-874636273e25)
+<img width="1366" height="670" alt="Edit Columns" src="https://github.com/user-attachments/assets/7eb31501-25f1-4f31-b2e2-3c4bdffcfc9c" />
 
 Clicking on the **Create** button will display a data entry dialog box for creating a new post. The created post will be associated with the user id value of the currently selected row. The dialog's **User Id** text field will be pre-filled and disabled.
 
-![Create Post Dialog](https://github.com/user-attachments/assets/d12b8b79-37c8-49f9-ab4c-c8311c724d36)
+<img width="1366" height="670" alt="Create Post Dialog" src="https://github.com/user-attachments/assets/28f210b0-01d5-492b-911e-ec11e7bf6148" />
 
 Since creating a new post is faked by the JSON Placeholder API, creating multiple posts produces the same post id for each newly created post. This isn't representative of an actual API call.
 
