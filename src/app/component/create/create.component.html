@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Create Post</h2>
-<mat-dialog-content class="flex flex-col">
+<mat-dialog-content class="flex flex-col space-y-5 !pt-2">
   <mat-form-field class="w-full">
     <mat-label>User Id</mat-label>
     <input
@@ -15,7 +15,7 @@
   </mat-form-field>
   <mat-form-field class="w-full">
     <mat-label>Body</mat-label>
-    <input id="create-body" matInput [(ngModel)]="body" />
+    <textarea id="create-body" matInput rows="4" [(ngModel)]="body"></textarea>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions class="gap-5">
