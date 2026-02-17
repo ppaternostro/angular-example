@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /**
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export abstract class GenericService<T, B> {
-  constructor(public httpClient: HttpClient) {}
+  httpClient = inject(HttpClient);
 
   // Types T and B used here
   protected create(url: string, object: B, options = {}): Observable<T> {

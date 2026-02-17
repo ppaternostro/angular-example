@@ -92,7 +92,7 @@ describe('ResultComponent', () => {
 
     fixture.detectChanges();
 
-    let rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
+    const rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
       By.css('#result-create'),
     ).nativeElement;
@@ -149,7 +149,7 @@ describe('ResultComponent', () => {
 
     fixture.detectChanges();
 
-    let rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
+    const rows = fixture.debugElement.queryAll(By.css('table tbody tr')).length;
     const createButton = fixture.debugElement.query(
       By.css('#result-create'),
     ).nativeElement;

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -30,13 +30,11 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './create.component.scss',
 })
 export class CreateComponent {
+  dialogRef = inject<MatDialogRef<CreateComponent>>(MatDialogRef);
+  data = inject(MAT_DIALOG_DATA);
+
   title: string | undefined;
   body: string | undefined;
-
-  constructor(
-    public dialogRef: MatDialogRef<CreateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
 
   cancel() {
     // Close and send data to parent component

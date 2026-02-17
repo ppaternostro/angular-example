@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ResultComponent } from '../result/result.component';
 import { SearchComponent } from '../search/search.component';
 
@@ -8,8 +8,4 @@ import { SearchComponent } from '../search/search.component';
   styleUrls: ['./content.component.scss'],
   imports: [SearchComponent, ResultComponent],
 })
-export class ContentComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class ContentComponent {}

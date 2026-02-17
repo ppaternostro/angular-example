@@ -12,7 +12,14 @@ describe('CreateComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CreateComponent],
       providers: [
-        { provide: MatDialogRef, useValue: { close: () => {} } },
+        {
+          provide: MatDialogRef,
+          useValue: {
+            close: () => {
+              // Intentionally empty method
+            },
+          },
+        },
         { provide: MAT_DIALOG_DATA, useValue: {} },
       ],
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  constructor(private dialog: MatDialog) {}
+  private dialog = inject(MatDialog);
 
   onInfoClick() {
     const dialogConfig = new MatDialogConfig();

@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,6 +26,9 @@ import { PostService } from '../../service/rest/post/post.service';
   styleUrl: './search.component.scss',
 })
 export class SearchComponent implements AfterViewInit {
+  private postService = inject(PostService);
+  private dataService = inject(DataService);
+
   // { read: ElementRef } required to reveal button's nativeElement attribute
   // https://blog.angular-university.io/angular-viewchild/
   @ViewChild('search', { read: ElementRef })
@@ -29,11 +38,6 @@ export class SearchComponent implements AfterViewInit {
   searchText!: ElementRef;
 
   selected = 'All';
-
-  constructor(
-    private postService: PostService,
-    private dataService: DataService
-  ) {}
 
   ngAfterViewInit(): void {
     this.searchText.nativeElement.disabled = true;
@@ -51,7 +55,7 @@ export class SearchComponent implements AfterViewInit {
       this.dataService.updatePosts(this.postService.getPosts());
     } else {
       this.dataService.updatePost(
-        this.postService.getPost(this.searchText.nativeElement.value)
+        this.postService.getPost(this.searchText.nativeElement.value),
       );
     }
   }
@@ -59,6 +63,6 @@ export class SearchComponent implements AfterViewInit {
   onInputChange(event: Event): void {
     this.search.nativeElement.disabled =
       // HTMLInputElement cast required to reveal value attribute
-      (<HTMLInputElement>event.target).value.length === 0;
+      (event.target as HTMLInputElement).value.length === 0;
   }
 }

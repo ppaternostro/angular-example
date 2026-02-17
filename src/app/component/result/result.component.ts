@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, computed, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -34,7 +35,7 @@ import { CreateComponent } from '../create/create.component';
 })
 export class ResultComponent {
   private _dataSource: MatTableDataSource<Post> = new MatTableDataSource<Post>(
-    []
+    [],
   );
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -59,7 +60,7 @@ export class ResultComponent {
 
           // Rethrow for global error handler
           return throwError(() => err);
-        })
+        }),
       )
       .subscribe((data) => {
         this._dataSource.data = data;
@@ -88,7 +89,7 @@ export class ResultComponent {
 
       // Filter out the non-deleted elements
       this._dataSource.data = this._dataSource.data.filter(
-        (post) => post !== element
+        (post) => post !== element,
       );
 
       // Signal update
@@ -130,15 +131,13 @@ export class ResultComponent {
       .afterClosed()
       .pipe(
         switchMap((result) => {
-          let createdPost: Observable<Post>;
-
-          createdPost =
+          const createdPost: Observable<Post> =
             result.data !== undefined
               ? this.postService.createPost(result.data)
               : of();
 
           return createdPost;
-        })
+        }),
       )
       .subscribe((data: Post) => {
         if (data.id) {
@@ -146,7 +145,7 @@ export class ResultComponent {
           this._dataSource.data.splice(
             this._dataSource.data.indexOf(this.selection.selected[0]),
             0,
-            data
+            data,
           );
 
           // Signal update

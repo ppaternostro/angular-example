@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ClockService } from '../../service/clock/clock.service';
 
@@ -10,16 +10,15 @@ import { ClockService } from '../../service/clock/clock.service';
   styleUrls: ['./clock.component.scss'],
 })
 export class ClockComponent implements OnInit, OnDestroy {
-  current = new Date();
+  private clockService = inject(ClockService);
   private tracker = new Subscription();
-
-  constructor(private clockService: ClockService) {}
+  current = new Date();
 
   ngOnInit(): void {
     this.tracker.add(
       this.clockService.getClock().subscribe((current: Date) => {
         this.current = current;
-      })
+      }),
     );
   }
 
