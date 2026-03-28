@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, computed, inject, ViewChild } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -39,6 +45,7 @@ export class ResultComponent {
   );
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('resultTitleInput') resultTitleInput!: ElementRef;
   originalPosts = new Map<number, Post>();
   displayedColumns: string[] = ['id', 'userId', 'title', 'body', 'action'];
   createDisabled = true;
@@ -81,6 +88,12 @@ export class ResultComponent {
   onEditClick(element: any): void {
     element.editable = true;
     this.originalPosts.set(element.id, JSON.parse(JSON.stringify(element)));
+
+    // Use setTimeout to ensure the element is fully rendered
+    setTimeout(() => {
+      this.resultTitleInput.nativeElement.focus();
+      this.resultTitleInput.nativeElement.select();
+    }, 0);
   }
 
   onDeleteClick(element: Post): void {
