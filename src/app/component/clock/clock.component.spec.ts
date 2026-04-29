@@ -25,14 +25,13 @@ describe('ClockComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return correct time', (done: DoneFn) => {
-    const spy = spyOn(service, 'getClock').and.returnValue(of(new Date()));
+  it('should return correct time', async () => {
+    const spy = vi.spyOn(service, 'getClock').mockReturnValue(of(new Date()));
 
     fixture.detectChanges();
 
-    spy.calls.mostRecent().returnValue.subscribe((value) => {
+    spy.mock.results.at(-1)?.value.subscribe((value: Date) => {
       expect(value).toBe(component.current);
-      done();
     });
   });
 });

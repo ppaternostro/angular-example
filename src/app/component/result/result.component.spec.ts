@@ -70,7 +70,7 @@ describe('ResultComponent', () => {
     expect(rows).toBe(1);
     expect(createButton.disabled).toBeTruthy();
 
-    spyOn(component, 'onDeleteClick').and.callFake(() => {
+    vi.spyOn(component, 'onDeleteClick').mockImplementation(() => {
       component.dataService.updatePosts(of([]));
     });
 
@@ -181,7 +181,7 @@ describe('ResultComponent', () => {
     expect(bodyInput).toBeTruthy();
     expect(saveIcon).toBeTruthy();
 
-    spyOn(component, 'onSaveClick').and.callFake((element) => {
+    vi.spyOn(component, 'onSaveClick').mockImplementation((element) => {
       element.editable = false;
       component.originalPosts.delete(element.id);
     });

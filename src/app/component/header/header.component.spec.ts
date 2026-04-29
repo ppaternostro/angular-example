@@ -23,25 +23,25 @@ describe('HeaderComponent', () => {
 
   it('should ensure header title and header info button exists on creation', () => {
     const headerTitle = fixture.debugElement.query(
-      By.css('#header-title')
+      By.css('#header-title'),
     ).nativeElement;
     const headerInfoButton = fixture.debugElement.query(
-      By.css('#header-info-button')
+      By.css('#header-info-button'),
     ).nativeElement;
 
     expect(headerTitle.textContent).toBe('Angular Example Application');
     expect(headerInfoButton).toBeTruthy();
-    expect(headerInfoButton.disabled).toBeFalse();
+    expect(headerInfoButton.disabled).toBe(false);
   });
 
   it('should ensure header info icon click to have been triggered', () => {
     const headerInfoIcon = fixture.debugElement.query(
-      By.css('#header-info-icon')
+      By.css('#header-info-icon'),
     ).nativeElement;
 
     expect(headerInfoIcon).toBeTruthy();
 
-    spyOn(component, 'onInfoClick');
+    vi.spyOn(component, 'onInfoClick');
 
     headerInfoIcon.click();
 

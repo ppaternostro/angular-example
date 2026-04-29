@@ -41,8 +41,8 @@ describe('SearchComponent', () => {
     const selectedValue = await selectHarness.getValueText();
 
     expect(selectedValue).toBe('All');
-    expect(searchText.disabled).toBeTrue();
-    expect(searchButton.disabled).toBeFalse();
+    expect(searchText.disabled).toBe(true);
+    expect(searchButton.disabled).toBe(false);
   });
 
   it('should ensure correct state on selection change', async () => {
@@ -63,8 +63,8 @@ describe('SearchComponent', () => {
     const selectedValue = await selectHarness.getValueText();
 
     expect(selectedValue).toBe('Id');
-    expect(searchText.disabled).toBeFalse();
-    expect(searchButton.disabled).toBeTrue();
+    expect(searchText.disabled).toBe(false);
+    expect(searchButton.disabled).toBe(true);
 
     // Set Search Text value to enable the Search button
     searchText.value = 1;
@@ -72,6 +72,6 @@ describe('SearchComponent', () => {
 
     fixture.detectChanges();
 
-    expect(searchButton.disabled).toBeFalse();
+    expect(searchButton.disabled).toBe(false);
   });
 });

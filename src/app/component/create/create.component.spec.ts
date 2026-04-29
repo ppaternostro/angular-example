@@ -45,7 +45,7 @@ describe('CreateComponent', () => {
         By.css(`#create-${param}`),
       ).nativeElement;
 
-      spyOn(component, `${param}` as keyof CreateComponent);
+      vi.spyOn(component, `${param}` as 'apply' | 'cancel');
 
       component.title = 'Title';
       component.body = 'Body';
