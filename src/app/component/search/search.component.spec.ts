@@ -5,6 +5,7 @@ import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { MatSelectHarness } from '@angular/material/select/testing';
 import { By } from '@angular/platform-browser';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { PostService } from '../../service/rest/post/post.service';
 import { SearchComponent } from './search.component';
 
