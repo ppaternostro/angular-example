@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogClose,
   ],
   templateUrl: './create.component.html',
+  // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './create.component.scss',
 })
 export class CreateComponent {

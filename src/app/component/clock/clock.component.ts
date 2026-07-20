@@ -1,5 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ClockService } from '../../service/clock/clock.service';
 
@@ -7,6 +13,8 @@ import { ClockService } from '../../service/clock/clock.service';
   selector: 'app-clock',
   imports: [DatePipe],
   templateUrl: './clock.component.html',
+  // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./clock.component.scss'],
 })
 export class ClockComponent implements OnInit, OnDestroy {

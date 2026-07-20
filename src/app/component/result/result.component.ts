@@ -6,6 +6,7 @@ import {
   ElementRef,
   inject,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -37,6 +38,8 @@ import { CreateComponent } from '../create/create.component';
     MatIcon,
   ],
   templateUrl: './result.component.html',
+  // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './result.component.scss',
 })
 export class ResultComponent {
