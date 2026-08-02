@@ -17,7 +17,6 @@
     "@angular/forms": "^22.0.7",
     "@angular/material": "^22.0.5",
     "@angular/platform-browser": "^22.0.7",
-    "@angular/platform-browser-dynamic": "^22.0.7",
     "@angular/router": "^22.0.7",
     "@tailwindcss/postcss": "^4.3.3",
     "postcss": "^8.5.20",
@@ -37,5 +36,13 @@
     "postcss": "^8.5.20",
     "typescript": "~6.0.3",
     "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "esbuild@0.27.3": true,
+    "@parcel/watcher@2.6.0": true,
+    "fsevents@2.3.3": true,
+    "lmdb@3.5.6": true,
+    "msgpackr-extract@3.0.4": true
   }
 }
